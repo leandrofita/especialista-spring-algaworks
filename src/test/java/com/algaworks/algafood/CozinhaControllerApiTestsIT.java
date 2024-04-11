@@ -11,11 +11,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.server.LocalServerPort;
 import org.springframework.http.HttpStatus;
+import org.springframework.test.context.TestPropertySource;
 
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+@TestPropertySource("/application-test.properties")
 class CozinhaControllerApiTestsIT {
 	
 	@LocalServerPort
@@ -32,7 +34,6 @@ class CozinhaControllerApiTestsIT {
 		RestAssured.port = port;
 		RestAssured.basePath = PATH;
 		
-		flyway.migrate();
 	}
 	
 	@Test
