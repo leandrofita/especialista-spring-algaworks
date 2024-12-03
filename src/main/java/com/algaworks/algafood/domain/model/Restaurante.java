@@ -1,7 +1,7 @@
 package com.algaworks.algafood.domain.model;
 
 import java.math.BigDecimal;
-import java.time.LocalDateTime;
+import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,11 +27,6 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import com.algaworks.algafood.api.core.validation.Groups;
-import com.algaworks.algafood.api.core.validation.Multiplo;
-import com.algaworks.algafood.api.core.validation.TaxaFrete;
-import com.algaworks.algafood.api.core.validation.ValorZeroIncluiDescricao;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -65,11 +60,11 @@ public class Restaurante {
 	
 	@CreationTimestamp
 	@Column(nullable = false, columnDefinition = "dateTime")
-	private LocalDateTime dataCadastro;
+	private OffsetDateTime dataCadastro;
 	
 	@UpdateTimestamp
 	@Column(nullable = false, columnDefinition = "dateTime")
-	private LocalDateTime dataAtualizacao;
+	private OffsetDateTime dataAtualizacao;
 	
 	@Embedded
 	private Endereco endereco;
